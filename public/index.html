@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>KYC</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col">
+            <form onsubmit="Register()">
+                <div id="Register">
+                    <span> Register</span> <br> <br>
+                    Aadhar Number: <input type="text" id="aadhar" required> <br> <br>
+                    Pan Number: <input type="text" id="pan" required> <br> <br>
+                    Driving License Number: <input type="text" id="license" required> <br> <br>
+                    <input type="submit">
+                </div>
+            </form>
+            <span id="hashGenerated"></span>
+        </div>
+        <div class="col">
+            <form action="">
+                <div id="Verify">
+                    <span> Register</span> <br> <br>
+                    Hash <input type="text"> <br> <br>
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <script type="text/javascript" src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+</body>
+
+</html>
