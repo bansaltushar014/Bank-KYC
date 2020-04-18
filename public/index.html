@@ -34,10 +34,11 @@
             <span id="hashGenerated"></span>
         </div>
         <div class="col">
-            <form action="">
+            <form onsubmit="verify1()">
                 <div id="Verify">
-                    <span> Register</span> <br> <br>
-                    Hash <input type="text"> <br> <br>
+                    <span> Verify</span> <br> <br>
+                    Index <input id="index" type="text" required > <br><br>
+                    Hash <input id="verify" type="text" required> <br> <br>
                     <input type="submit">
                 </div>
             </form>

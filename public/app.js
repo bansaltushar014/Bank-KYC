@@ -5,7 +5,7 @@ fetch('http://localhost:3000/Kyc.json')
     })
     .then(json => {
         var contractAbi = JSON.parse(json);
-      
+
         var abi = contractAbi.abi;
         // var address = contractAbi.networks['5777'].address;
         var deployments = Object.keys(contractAbi.networks);
@@ -45,28 +45,48 @@ fetch('http://localhost:3000/Kyc.json')
 
     });
 
-function Register(){
+
+function verify1() {
+    event.preventDefault();
+    var indexValue = document.getElementById('index').value;
+    var hash = document.getElementById('verify').value;
+    console.log("hashs is " + hash + "index "+ indexValue);
+    instance.methods.verifyDocument(indexValue,hash).call()
+    .then(result => {
+        alert("verified");
+    })
+        
+
+}
+
+function Register() {
     event.preventDefault();
     var aadhar = document.getElementById("aadhar").value;
     var pan = document.getElementById("pan").value;
     var license = document.getElementById("license").value;
     // console.log("aadhar "+ aadhar + "pan "+ pan + "license "+ license);
-    aadhar = web3.utils.sha3(aadhar); 
-    pan = web3.utils.sha3(pan); 
-    license = web3.utils.sha3(license); 
-    
+    aadhar = web3.utils.sha3(aadhar);
+    pan = web3.utils.sha3(pan);
+    license = web3.utils.sha3(license);
+
     var hash = aadhar + pan + license;
-    hash = web3.utils.sha3(hash); 
+    hash = web3.utils.sha3(hash);
     // document.getElementById('hashGenerated').appendChild(hash);
-    document.getElementById("hashGenerated").innerHTML = hash;
+
 
     storeDocument(hash);
-}
+};
 
-function storeDocument(hash){
-    instance.methods.storeDocument(0, hash).send({ from: '0xadD2292217dA6B0D93c3b204De770842bDF77198' })
-  .then(result => {
-    console.log("result ");
-  })
-}
+function storeDocument(hash) {
+    instance.methods.storeDocument(hash).send({ from: '0xadD2292217dA6B0D93c3b204De770842bDF77198' })
+        .then(result => {
+            document.getElementById("hashGenerated").innerHTML = hash;
+        })
+
+    instance.methods.getId().call()
+    .then(result => {
+        console.log(result);
+    })
+};
+
 
